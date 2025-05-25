@@ -1,0 +1,81 @@
+﻿<Page x:Class="空运系统.pages.上传账单"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="上传账单"
+      Loaded="Page_Loaded">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 标题 -->
+        <Border Grid.Row="0" Background="#1976D2" Padding="15,10" CornerRadius="4">
+            <TextBlock Text="添加新账单" 
+                       Foreground="White"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- 数据表格 -->
+        <DataGrid x:Name="BillDataGrid"
+                  Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="True"
+                  Margin="0,15,0,15"
+                  FontSize="16"
+                  IsReadOnly="False"
+                  PreviewKeyDown="BillDataGrid_PreviewKeyDown"/>
+
+        <!-- 操作区域 -->
+        <Border Grid.Row="2" Background="#F5F5F5" Padding="10" CornerRadius="4" Margin="0,10,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <!-- 统计标签 -->
+                <TextBlock x:Name="RowCountTextBlock"
+               FontSize="14"
+               Foreground="#444"
+               VerticalAlignment="Center"
+               Margin="0,0,20,0"/>
+                <TextBlock x:Name="TotalAmountTextBlock"
+               FontSize="14"
+               Foreground="#444"
+               VerticalAlignment="Center"
+               Margin="0,0,20,0"/>
+                <TextBlock x:Name="BillTypeLabel"
+                           Text="月份默认值：2025-05"
+                           FontSize="14"
+                           Foreground="#444"
+                           VerticalAlignment="Center"
+                           Margin="0,0,10,0"
+                           MouseLeftButtonDown="BillTypeLabel_MouseLeftButtonDown"/>
+
+                <Button x:Name="AddBillButton"
+                        Content="添加新账单"
+                        Width="120"
+                        Height="35"
+                        Margin="5"
+                        Background="#4CAF50"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Click="AddBillButton_Click"/>
+
+                <Button x:Name="ClearButton"
+                        Content="清空表格"
+                        Width="120"
+                        Height="35"
+                        Margin="5"
+                        Background="#f44336"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Click="ClearButton_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

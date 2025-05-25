@@ -1,0 +1,175 @@
+﻿<Window x:Class="空运系统.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="汇丰空运物流管理系统"
+        Height="600" 
+        Width="1000"
+        Background="#F8F9FA"
+        WindowState="Maximized"
+        WindowStyle="SingleBorderWindow">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Gray" Direction="320" ShadowDepth="3" BlurRadius="5"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Expander统一样式 -->
+        <Style TargetType="Expander">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3F5F5F"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 顶部标题栏 -->
+        <Border Grid.ColumnSpan="2" Background="#4F6F6F">
+            <TextBlock Text="汇丰空运物流管理系统" 
+                      Foreground="White" 
+                      FontSize="24"
+                      FontWeight="Bold"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- 左侧导航栏 -->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- 可滚动菜单区域 -->
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <StackPanel Background="#4F6F6F" Margin="5" Name="MainMenuPanel">
+                    
+
+                    <Expander Header="💰 金额核对" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="当日金额核对"/>
+                            <Button Content="分站金额核对"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="🔍 查询管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="单条查询"/>
+                            <Button Content="月份查询"/>
+                            <Button Content="欠款查询"/>
+                            <Button Content="优惠查询"/>
+                            <Button Content="未到货查询"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="📦 货物签收" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="签收页面"/>
+                            <Button Content="签收查询"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="📥 入库管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="入库登记"/>
+                            <Button Content="到货通知"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="📤 出库管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="出库操作"/>
+                            <Button Content="出库查询"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="🚚 发货管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="发货登记"/>
+                            <Button Content="分站查询"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="💸 支出管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="日常支出"/>
+                            <Button Content="清关费用"/>
+                            <Button Content="国内付款"/>
+                            <Button Content="其他借支"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander x:Name="yueduduizhang" Header="📊 月度对账" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="月度报表"/>
+                            <Button Content="开票记录"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Expander Header="📁 数据管理" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="账单上传" Click="Button_Click_3"/>
+                            <Button Content="数据更新" Click="Button_Click_4"/>
+                        </StackPanel>
+                    </Expander>
+                    <Expander x:Name="SystemSettingsExpander" Header="⚙️ 系统设置" Expanded="Expander_Expanded">
+                        <StackPanel>
+                            <Button Content="用户管理" Tag="UserManagement" Click="Button_Click"/>
+                            <Button Content="数据权限" Tag="PermissionSettings" Click="Button_Click_1"/>
+                            <Button Content="页面权限" Tag="PermissionSettings" Click="Button_Click_2"/>
+                        </StackPanel>
+                    </Expander>
+
+                    <Button Content="❌ 关闭系统" 
+                        Background="#8B0000" 
+                        Foreground="White"
+                        Click="CloseSystem_Click"/>
+                </StackPanel>
+                
+            </ScrollViewer>
+
+            <!-- 用户信息区域 -->
+            <Border Grid.Row="1" 
+                    Background="#3F5F5F" 
+                    Padding="10"
+                    BorderBrush="#2F4F4F"
+                    BorderThickness="0,1,0,0">
+                <TextBlock x:Name="UserInfoBlock"
+                          Text="当前用户："
+                          Foreground="White"
+                          FontSize="12"
+                          VerticalAlignment="Center"/>
+            </Border>
+        </Grid>
+
+        <!-- 内容区域 -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="欢迎使用空运物流管理系统"
+                      Background="LightYellow"
+                      FontSize="28"
+                      Foreground="#4F6F6F"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontWeight="Bold"/>
+
+            <Frame x:Name="MainContentFrame" 
+                  Background="#E6F7FF"
+                  NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

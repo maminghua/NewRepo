@@ -1,0 +1,59 @@
+﻿<Application x:Class="空运系统.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="loginwindow.xaml">
+    <Application.Resources>
+        <!-- 自定义颜色方案 -->
+        <Color x:Key="BackgroundColor">#F5F5F5</Color>
+        <Color x:Key="PrimaryColor">#1E73BE</Color>
+        <Color x:Key="TextColor">#333333</Color>
+
+        <!-- 自定义按钮样式 -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1E73BE" />
+            <!-- 设置按钮背景色 -->
+            <Setter Property="Foreground" Value="White" />
+            <!-- 设置按钮文本颜色 -->
+            <Setter Property="FontSize" Value="16" />
+            <!-- 设置字体大小 -->
+            <Setter Property="Padding" Value="10,5" />
+            <!-- 设置内边距 -->
+            <Setter Property="Width" Value="120" />
+            <!-- 设置按钮宽度 -->
+            <Setter Property="Height" Value="40" />
+            <!-- 设置按钮高度 -->
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <!-- 水平居中 -->
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <!-- 垂直居中 -->
+            <Setter Property="FontWeight" Value="Bold" />
+            <!-- 设置加粗字体 -->
+        </Style>
+
+
+
+
+
+
+
+
+
+        <!-- 自定义文本框样式 -->
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White" />
+            <!-- 设置背景色为白色 -->
+            <Setter Property="BorderBrush" Value="#1E73BE" />
+            <!-- 设置边框颜色 -->
+            <Setter Property="BorderThickness" Value="1" />
+            <!-- 设置边框宽度 -->
+            <Setter Property="FontSize" Value="16" />
+            <!-- 设置字体大小 -->
+            <Setter Property="Padding" Value="10" />
+            <!-- 设置内边距 -->
+        </Style>
+
+
+
+
+    </Application.Resources>
+</Application>
